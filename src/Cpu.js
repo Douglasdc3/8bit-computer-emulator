@@ -7,6 +7,15 @@ class Cpu {
             0x69: () => {
                 this.acc += parseInt(this.read());
             },
+            0x8D: () => {
+
+
+                let hi = this.read() << 8;
+                let lo = this.read();
+
+                console.log('test', hi, lo);
+                this.computer.memory.set(hi | lo, this.acc);
+            },
             0xEA: function () {},
         };
 

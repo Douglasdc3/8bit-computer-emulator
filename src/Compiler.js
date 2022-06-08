@@ -50,6 +50,17 @@ class Compiler {
 
                 this.write(0x69);
                 this.write(instruction)
+            } else if (line.startsWith('STA')) {
+                let instruction = line.replace('STA', '').trim();
+                this.write(0x8D);
+
+                if (instruction.startsWith('$')) {
+                    let addressHi = parseInt(instruction.substring(1, 3), 16);
+                    let addressLo = parseInt(instruction.substring(3, 5), 16);
+                    this.write(addressHi);
+                    this.write(addressLo);
+                }
+
             }
         }
         this.print();

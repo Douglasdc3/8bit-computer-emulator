@@ -17,7 +17,7 @@ class Computer {
     constructor() {
         this.memory = new Memory();
         this.cpu = new Cpu(this);
-        this.screen = new Screen();
+        this.screen = new Screen(this);
         this.screen.start();
     }
 

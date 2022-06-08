@@ -15,7 +15,11 @@ class Memory {
     }
 
     get(address) {
-        return this.data[address];
+        return this.data[address] || 0x00;
+    }
+
+    set(address, value) {
+        this.data[address] = value;
     }
 
     /**
